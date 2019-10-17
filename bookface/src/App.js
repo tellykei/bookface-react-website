@@ -80,7 +80,7 @@ function App() {
                 color="inherit"
               >
                 <AccountCircle />
-                <p>you a bitch</p>
+                <p> </p>
               </IconButton>
               <Menu
                 id="menu-appbar"
