@@ -10,8 +10,32 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 
+import EmailAddressInput from "../inputs/EmailAddressInput";
+
 class Loginpage extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      emailAddress: ""
+    };
+
+    this.handleEmailAddressChange = this.handleEmailAddressChange.bind(this);
+    this.handleEmailAddressSubmit = this.handleEmailAddressSubmit.bind(this);
+  }
+
+  handleEmailAddressChange(event) {
+    this.setState({ emailAddress: event.target.value });
+  }
+  handleEmailAddressSubmit() {
+    const { emailAddress } = this.state;
+
+    alert(`You entered the email address: ${emailAddress}`);
+  }
+
   render() {
+    const { emailAddress } = this.state;
+
     return (
       <div>
         <br></br>
@@ -23,14 +47,9 @@ class Loginpage extends React.Component {
               Sign in
             </Typography>
             <form>
-              <TextField
-                variant="outlined"
-                margin="normal"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
+              <EmailAddressInput
+                value={emailAddress}
+                onChange={this.handleEmailAddressChange}
               />
               <TextField
                 variant="outlined"
@@ -51,6 +70,7 @@ class Loginpage extends React.Component {
                 fullWidth
                 variant="contained"
                 color="primary"
+                onClick={this.handleEmailAddressSubmit}
               >
                 Login In
               </Button>
