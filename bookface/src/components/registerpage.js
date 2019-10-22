@@ -7,6 +7,21 @@ import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 
 class Registerpage extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.checkPassword = this.checkPassword.bind(this);
+  }
+  checkPassword(){
+    const password = document.getElementById("password");
+    const confirm_password = document.getElementById("confirm_password");
+    if (password.value !== confirm_password.value){
+      confirm_password.setCustomValidity("Passwords Do Not Match");
+    }
+    else {
+      confirm_password.setCustomValidity('');
+  }
+}
   render() {
     return (
       <div>
@@ -37,16 +52,18 @@ class Registerpage extends React.Component {
                 label="Password"
                 type="password"
                 id="password"
+                onChange={this.checkPassword}
               />
               <TextField
                 variant="outlined"
                 margin="normal"
                 required
                 fullWidth
-                name="password"
+                name="confirm_password"
                 label="Confirm Password"
                 type="password"
-                id="password"
+                id="confirm_password"
+                onKeyUp={this.checkPassword}
               />
               <Button
                 type="submit"
