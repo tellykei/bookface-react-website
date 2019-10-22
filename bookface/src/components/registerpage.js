@@ -10,6 +10,7 @@ class Registerpage extends React.Component {
   render() {
     return (
       <div>
+        <br></br>
         <Container component="main" maxWidth="xs">
           <CssBaseline />
           <div>
@@ -34,6 +35,16 @@ class Registerpage extends React.Component {
                 fullWidth
                 name="password"
                 label="Password"
+                type="password"
+                id="password"
+              />
+              <TextField
+                variant="outlined"
+                margin="normal"
+                required
+                fullWidth
+                name="password"
+                label="Confirm Password"
                 type="password"
                 id="password"
               />

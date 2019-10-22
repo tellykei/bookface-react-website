@@ -7,9 +7,10 @@ import { ThemeProvider } from "@material-ui/styles";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Loginpage from "./components/loginpage";
 import Registerpage from "./components/registerpage";
+import Forgotpasswordpage from "./components/forgotpasswordpage";
 
 import { yellow, pink } from "@material-ui/core/colors";
-import Forgotpasswordpage from "./components/forgotpasswordpage";
+
 
 const theme = createMuiTheme({
   palette: {
@@ -44,6 +45,7 @@ class App extends React.Component {
                 <Route path="/recover">
                   <Forgotpasswordpage />
                 </Route>
+                
               </Switch>
             </div>
           </Router>

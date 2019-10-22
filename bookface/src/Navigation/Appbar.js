@@ -13,9 +13,7 @@ class NavigationBar extends React.Component {
 
     // Bind 'this' to both of these class functions
     this.handleLoginPageNavigation = this.handleLoginPageNavigation.bind(this);
-    this.handleRegisterPageNavigation = this.handleRegisterPageNavigation.bind(
-      this
-    );
+    this.handleRegisterPageNavigation = this.handleRegisterPageNavigation.bind(this);
   }
 
   handleLoginPageNavigation() {

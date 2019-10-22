@@ -10,6 +10,7 @@ class Forgotpasswordpage extends React.Component {
   render() {
     return (
       <div>
+        <br></br>
         <Container component="main" maxWidth="xs">
           <CssBaseline />
           <div>
