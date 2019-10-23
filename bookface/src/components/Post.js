@@ -19,7 +19,7 @@ class Post extends React.Component{
         const newPost = {names:"me",text:this.state.text}
         post.push(newPost);
         this.setState({post:post});
-        alert({this.state.text});
+        alert(this.state.text);
     }
     render(){
         const{post}=this.state;
