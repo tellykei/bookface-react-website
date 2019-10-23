@@ -10,7 +10,18 @@ class Registerpage extends React.Component {
   constructor(props) {
     super(props);
 
+    this.checkEmail = this.checkEmail.bind(this);
     this.checkPassword = this.checkPassword.bind(this);
+  }
+  checkEmail(){
+    const email = document.getElementById("email");
+    const mailformat = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(mailformat.test(email.value)) {
+      email.setCustomValidity('');
+    }
+    else {
+      email.setCustomValidity("Invalid Email Address");
+    }
   }
   checkPassword(){
     const password = document.getElementById("password");
@@ -34,6 +45,24 @@ class Registerpage extends React.Component {
               Create a new account
             </Typography>
             <form>
+            <TextField
+                variant="outlined"
+                margin="normal"
+                required
+                fullWidth
+                id="fname"
+                label="First Name"
+                name="fname"
+              />
+                <TextField
+                variant="outlined"
+                margin="normal"
+                required
+                fullWidth
+                id="lname"
+                label="Last Name"
+                name="lname"
+              />
               <TextField
                 variant="outlined"
                 margin="normal"
@@ -42,6 +71,7 @@ class Registerpage extends React.Component {
                 id="email"
                 label="Email Address"
                 name="email"
+                onKeyUp={this.checkEmail}
               />
               <TextField
                 variant="outlined"
