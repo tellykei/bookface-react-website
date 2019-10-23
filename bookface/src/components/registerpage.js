@@ -13,26 +13,24 @@ class Registerpage extends React.Component {
     this.checkEmail = this.checkEmail.bind(this);
     this.checkPassword = this.checkPassword.bind(this);
   }
-  checkEmail(){
+  checkEmail() {
     const email = document.getElementById("email");
     const mailformat = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if(mailformat.test(email.value)) {
-      email.setCustomValidity('');
-    }
-    else {
+    if (mailformat.test(email.value)) {
+      email.setCustomValidity("");
+    } else {
       email.setCustomValidity("Invalid Email Address");
     }
   }
-  checkPassword(){
+  checkPassword() {
     const password = document.getElementById("password");
     const confirm_password = document.getElementById("confirm_password");
-    if (password.value !== confirm_password.value){
+    if (password.value !== confirm_password.value) {
       confirm_password.setCustomValidity("Passwords Do Not Match");
+    } else {
+      confirm_password.setCustomValidity("");
     }
-    else {
-      confirm_password.setCustomValidity('');
   }
-}
   render() {
     return (
       <div>
@@ -45,7 +43,7 @@ class Registerpage extends React.Component {
               Create a new account
             </Typography>
             <form>
-            <TextField
+              <TextField
                 variant="outlined"
                 margin="normal"
                 required
@@ -54,7 +52,7 @@ class Registerpage extends React.Component {
                 label="First Name"
                 name="fname"
               />
-                <TextField
+              <TextField
                 variant="outlined"
                 margin="normal"
                 required
