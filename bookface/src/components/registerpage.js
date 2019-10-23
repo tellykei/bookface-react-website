@@ -5,13 +5,36 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
+import EmailAddressInput from "../inputs/EmailAddressInput";
+import LastNameInput from "../inputs/LastNameInput";
+import FirstNameInput from "../inputs/FirstNameInput";
 
 class Registerpage extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      FirstName: ""
+    };
+    this.state = {
+      LastName: ""
+    };
+
+    this.state = {
+      emailAddress: ""
+    };
+
+    this.handleEmailAddressChange = this.handleEmailAddressChange.bind(this);
+    this.handleEmailAddressSubmit = this.handleEmailAddressSubmit.bind(this);
+
+    this.handleFirstNameChange = this.handleFirstNameChange.bind(this);
+    this.handleFirstNameSubmit = this.handleFirstNameSubmit.bind(this);
+
+    this.handleLastNameChange = this.handleLastNameChange.bind(this);
+    this.handleLastNameSubmit = this.handleLastNameSubmit.bind(this);
 
     this.checkEmail = this.checkEmail.bind(this);
     this.checkPassword = this.checkPassword.bind(this);
+    this.onClick = this.onClick.bind(this);
   }
   checkEmail() {
     const email = document.getElementById("email");
@@ -31,7 +54,43 @@ class Registerpage extends React.Component {
       confirm_password.setCustomValidity("");
     }
   }
+  handleFirstNameChange(event) {
+    this.setState({ FirstName: event.target.value });
+  }
+  handleFirstNameSubmit() {
+    const { FirstName } = this.state;
+
+    alert(`You entered the First Name: ${FirstName}`);
+  }
+
+  handleLastNameChange(event) {
+    this.setState({ LastName: event.target.value });
+  }
+  handleLastNameSubmit() {
+    const { LastName } = this.state;
+
+    alert(`You entered the LastName: ${LastName}`);
+  }
+  handleEmailAddressChange(event) {
+    this.setState({ emailAddress: event.target.value });
+  }
+  handleEmailAddressSubmit() {
+    const { emailAddress } = this.state;
+
+    alert(`You entered the Email Address: ${emailAddress}`);
+  }
+
+  onClick(event) {
+    this.handleFirstNameSubmit();
+    this.handleLastNameSubmit();
+    this.handleEmailAddressSubmit();
+    this.checkPassword();
+  }
+
   render() {
+    const { FirstName } = this.state;
+    const { LastName } = this.state;
+    const { emailAddress } = this.state;
     return (
       <div>
         <br></br>
@@ -43,33 +102,17 @@ class Registerpage extends React.Component {
               Create a new account
             </Typography>
             <form>
-              <TextField
-                variant="outlined"
-                margin="normal"
-                required
-                fullWidth
-                id="fname"
-                label="First Name"
-                name="fname"
+              <FirstNameInput
+                value={FirstName}
+                onChange={this.handleFirstNameChange}
               />
-              <TextField
-                variant="outlined"
-                margin="normal"
-                required
-                fullWidth
-                id="lname"
-                label="Last Name"
-                name="lname"
+              <LastNameInput
+                value={LastName}
+                onChange={this.handleLastNameChange}
               />
-              <TextField
-                variant="outlined"
-                margin="normal"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                onKeyUp={this.checkEmail}
+              <EmailAddressInput
+                value={emailAddress}
+                onChange={this.handleEmailAddressChange}
               />
               <TextField
                 variant="outlined"
@@ -98,6 +141,7 @@ class Registerpage extends React.Component {
                 fullWidth
                 variant="contained"
                 color="primary"
+                onClick={this.onClick}
               >
                 Register
               </Button>

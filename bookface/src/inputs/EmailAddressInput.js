@@ -5,6 +5,8 @@ import { TextField } from "@material-ui/core";
 class EmailAddressInput extends React.Component {
   render() {
     const { value, onChange } = this.props;
+    const emailIsValid = value.includes("@");
+    const helperText = emailIsValid ? "Email is Good" : "Missing @ sign";
 
     return (
       <TextField
@@ -15,6 +17,8 @@ class EmailAddressInput extends React.Component {
         label={"Email Address"}
         value={value}
         onChange={onChange}
+        error={!emailIsValid}
+        helperText={helperText}
       />
     );
   }
