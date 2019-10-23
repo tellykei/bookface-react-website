@@ -14,13 +14,15 @@ class NavigationBar extends React.Component {
     // Bind 'this' to both of these class functions
     this.handleHomePageNavigation = this.handleHomePageNavigation.bind(this);
     this.handleLoginPageNavigation = this.handleLoginPageNavigation.bind(this);
-    this.handleRegisterPageNavigation = this.handleRegisterPageNavigation.bind(this);
+    this.handleRegisterPageNavigation = this.handleRegisterPageNavigation.bind(
+      this
+    );
   }
 
   handleHomePageNavigation() {
     const { history } = this.props;
 
-    history.push('/home');
+    history.push("/");
   }
 
   handleLoginPageNavigation() {
@@ -35,35 +37,27 @@ class NavigationBar extends React.Component {
   }
 
   render() {
-
     return (
-
       <div>
-
         <AppBar position="static">
-
           <Toolbar>
-
             <IconButton edge="start" color="inherit" aria-label="menu">
               <MenuIcon />
             </IconButton>
 
-            <Button color={'inherit'} 
-                    onClick={this.handleHomePageNavigation}>
-
-                Home
+            <Button color={"inherit"} onClick={this.handleHomePageNavigation}>
+              Home
             </Button>
 
-            <Button color={"inherit"} 
-                    onClick={this.handleLoginPageNavigation}>
-                      
-                Login
+            <Button color={"inherit"} onClick={this.handleLoginPageNavigation}>
+              Login
             </Button>
 
-            <Button color={"inherit"} 
-                    onClick={this.handleRegisterPageNavigation}>
-
-                Register
+            <Button
+              color={"inherit"}
+              onClick={this.handleRegisterPageNavigation}
+            >
+              Register
             </Button>
           </Toolbar>
         </AppBar>

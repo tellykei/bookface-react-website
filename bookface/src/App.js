@@ -5,13 +5,12 @@ import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import HomePage from './components/HomePage';
+import HomePage from "./components/HomePage";
 import Loginpage from "./components/loginpage";
 import Registerpage from "./components/registerpage";
 import Forgotpasswordpage from "./components/forgotpasswordpage";
 
 import { yellow, pink } from "@material-ui/core/colors";
-
 
 const theme = createMuiTheme({
   palette: {
@@ -35,10 +34,6 @@ class App extends React.Component {
               {/* React Router switch statement for conditionally rendering Components.
                                    If the path matches '/about' render the AboutPage Component */}
               <Switch>
-                <Route path='/home'>
-                  <HomePage />
-                </Route>
-
                 <Route path="/login">
                   <Loginpage />
                 </Route>
@@ -50,7 +45,10 @@ class App extends React.Component {
                 <Route path="/recover">
                   <Forgotpasswordpage />
                 </Route>
-                
+
+                <Route path="/">
+                  <HomePage />
+                </Route>
               </Switch>
             </div>
           </Router>

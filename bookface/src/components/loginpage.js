@@ -2,14 +2,13 @@ import React from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import TextField from "@material-ui/core/TextField";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
-
+import PasswordInput from "../inputs/PasswordInput";
 import EmailAddressInput from "../inputs/EmailAddressInput";
 
 class Loginpage extends React.Component {
@@ -22,6 +21,9 @@ class Loginpage extends React.Component {
 
     this.handleEmailAddressChange = this.handleEmailAddressChange.bind(this);
     this.handleEmailAddressSubmit = this.handleEmailAddressSubmit.bind(this);
+    this.handlePasswordChange = this.handlePasswordChange.bind(this);
+    this.handlePasswordSubmit = this.handlePasswordSubmit.bind(this);
+    this.onClick = this.onClick.bind(this);
   }
 
   handleEmailAddressChange(event) {
@@ -30,11 +32,24 @@ class Loginpage extends React.Component {
   handleEmailAddressSubmit() {
     const { emailAddress } = this.state;
 
-    alert(`You entered the email address: ${emailAddress}`);
+    alert(`You entered the Email Address: ${emailAddress}`);
+  }
+  handlePasswordChange(event) {
+    this.setState({ Password: event.target.value });
+  }
+  handlePasswordSubmit() {
+    const { Password } = this.state;
+
+    alert(`You entered the Password: ${Password}`);
   }
 
+  onClick(event) {
+    this.handleEmailAddressSubmit();
+    this.handlePasswordSubmit();
+  }
   render() {
     const { emailAddress } = this.state;
+    const { Password } = this.state;
 
     return (
       <div>
@@ -51,15 +66,9 @@ class Loginpage extends React.Component {
                 value={emailAddress}
                 onChange={this.handleEmailAddressChange}
               />
-              <TextField
-                variant="outlined"
-                margin="normal"
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
+              <PasswordInput
+                value={Password}
+                onChange={this.handlePasswordChange}
               />
               <FormControlLabel
                 control={<Checkbox value="remember" color="default" />}
@@ -70,18 +79,18 @@ class Loginpage extends React.Component {
                 fullWidth
                 variant="contained"
                 color="primary"
-                onClick={this.handleEmailAddressSubmit}
+                onClick={this.onClick}
               >
                 Login In
               </Button>
               <Grid container>
                 <Grid item xs>
-                 <Link href="recover" color="inherit" variant="body2"> 
+                  <Link href="recover" color="inherit" variant="body2">
                     {"Forgot password?"}
                   </Link>
                 </Grid>
                 <Grid item>
-                 <Link href="/register" color="inherit" variant="body2">
+                  <Link href="/register" color="inherit" variant="body2">
                     {"Don't have an account? Sign Up"}
                   </Link>
                 </Grid>

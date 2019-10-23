@@ -12,7 +12,7 @@ class EmailAddressInput extends React.Component {
         margin={"normal"}
         required
         fullWidth
-        label={"Email address"}
+        label={"Email Address"}
         value={value}
         onChange={onChange}
       />
