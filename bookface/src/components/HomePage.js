@@ -4,6 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import { Card, CardContent, CardActions, Button } from '@material-ui/core';
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import ThumbDownAltIcon from "@material-ui/icons/ThumbDownAlt";
+import TextField from '@material-ui/core/TextField';
 
 class HomePage extends React.Component {
     constructor(props){
@@ -12,7 +13,8 @@ class HomePage extends React.Component {
             like: 0,
             dislike:0,
             updatedlike:false,
-            updateddislike:false
+            updateddislike:false,
+
 
         };
         this.handelAddlike=this.handelAddlike.bind(this);
@@ -53,24 +55,23 @@ class HomePage extends React.Component {
                         </Typography>
                     </CardContent>
 
-                    <CardActions>
-                    <IconButton 
-                        variant={"contained"}
-                        aria-label="like" 
-                        onClick={this.handelAddlike}>
-                    <ThumbUpIcon />
-                     {this.state.like}
-                    </IconButton>
-      
-                 <IconButton
-                    variant = {"contained"}
-                    aria-label="dislike"
-                    onClick={this.handleAdddislike}>
-                <ThumbDownAltIcon/>
-                    {this.state.dislike}
-                 </IconButton>
-                    </CardActions>
+                        <IconButton 
+                            variant={"contained"}
+                            aria-label="like" 
+                            onClick={this.handelAddlike}>
+                            <ThumbUpIcon />
+                            {this.state.like}
+                        </IconButton>
+            
+                        <IconButton
+                            variant = {"contained"}
+                            aria-label="dislike"
+                            onClick={this.handleAdddislike}>
+                            <ThumbDownAltIcon/>
+                            {this.state.dislike}
+                         </IconButton>
                 </Card>
+                
             )
         });
 
@@ -80,8 +81,27 @@ class HomePage extends React.Component {
                 <Typography variant={"h5"} align={'center'} style={{ margin: '2rem' }}>
                     BookFace Home
                 </Typography>
+                <div style={{ margin:"2rem",marginRight:"20rem"}}>
+                    <TextField
+                        id="outlined-multiline-flexible"
+                        label="Type what you feel"
+                        multiline
+                        rowsMax="4"
+                        fullWidth
+                        margin="normal"
+                        variant="outlined"
+                     />
+                    <Button
+                    style={{marginLeft:"63rem"}}
+                    variant={"contained"}
+                    color="yellow">
+
+                    Create Post
+                </Button> 
+                </div>
 
                 {cards}
+                
 
                 <Typography variant={"h6"} align={'center'} style={{ margin: '2rem' }}>
                     Feedback?
