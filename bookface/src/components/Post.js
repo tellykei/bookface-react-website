@@ -14,12 +14,13 @@ class Post extends React.Component{
     handlePost(event){
         this.setState({text: event.target.value});
     }
-    handleAddPost(){
+    handleAddPost(event){
         const{post}=this.state;
         const newPost = {names:"me",text:this.state.text}
         post.push(newPost);
         this.setState({post:post});
         alert(this.state.text);
+        event.preventDefault();
     }
     render(){
         const{post}=this.state;
