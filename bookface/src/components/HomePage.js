@@ -4,8 +4,8 @@ import Typography from '@material-ui/core/Typography';
 import { Card, CardContent, CardActions, Button } from '@material-ui/core';
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import ThumbDownAltIcon from "@material-ui/icons/ThumbDownAlt";
-import TextField from '@material-ui/core/TextField';
 
+import Post from './Post';
 class HomePage extends React.Component {
     constructor(props){
         super(props);
@@ -14,11 +14,14 @@ class HomePage extends React.Component {
             dislike:0,
             updatedlike:false,
             updateddislike:false,
+            post:[]
 
 
         };
         this.handelAddlike=this.handelAddlike.bind(this);
         this.handleAdddislike=this.handleAdddislike.bind(this);
+        this.handlePost=this.handlePost.bind(this);
+        this.handlesubmit=this.handlesubmit.bind(this);
     }
     handelAddlike(event){
         const{like}=this.state;
@@ -30,8 +33,21 @@ class HomePage extends React.Component {
         this.setState({dislike:dislike+1})
         this.setState({updatedlike:!this.state.updateddislike})
     }
-    render() {
+    handlePost(event){
+        this.setState({post: event.target.value});
 
+    }
+    handlesubmit(event) {
+        const{post}=this.state;
+        const newPost = {names:"me",text:this.state.text}
+        post.push(newPost);
+        this.setState({post:post});
+       
+        
+        
+    }
+    render() {
+        const{post}=this.state;
         const cards = ['Fry', 'Leela', 'Zoidberg'].map((name) => {
 
             return (
@@ -74,35 +90,16 @@ class HomePage extends React.Component {
                 
             )
         });
-
         return (
             <div>
 
                 <Typography variant={"h5"} align={'center'} style={{ margin: '2rem' }}>
                     BookFace Home
                 </Typography>
-                <div style={{ margin:"2rem",marginRight:"20rem"}}>
-                    <TextField
-                        id="outlined-multiline-flexible"
-                        label="Type what you feel"
-                        multiline
-                        rowsMax="4"
-                        fullWidth
-                        margin="normal"
-                        variant="outlined"
-                     />
-                    <Button
-                    style={{marginLeft:"63rem"}}
-                    variant={"contained"}
-                    color="yellow">
-
-                    Create Post
-                </Button> 
-                </div>
-
-                {cards}
+                <div><Post /></div>
                 
 
+                {cards}
                 <Typography variant={"h6"} align={'center'} style={{ margin: '2rem' }}>
                     Feedback?
                 </Typography>
