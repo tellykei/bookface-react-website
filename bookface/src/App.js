@@ -9,6 +9,7 @@ import HomePage from "./components/HomePage";
 import Loginpage from "./components/loginpage";
 import Registerpage from "./components/registerpage";
 import Forgotpasswordpage from "./components/forgotpasswordpage";
+import Profilepage from "./components/profilepage";
 
 import { yellow, pink } from "@material-ui/core/colors";
 
@@ -44,6 +45,10 @@ class App extends React.Component {
 
                 <Route path="/recover">
                   <Forgotpasswordpage />
+                </Route>
+
+                <Route path="/profile">
+                  <Profilepage />
                 </Route>
 
                 <Route path="/">
