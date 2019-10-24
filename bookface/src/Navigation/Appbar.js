@@ -47,9 +47,9 @@ class NavigationBar extends React.Component {
     if(!loggedin){
     return (
       <div>
-        <AppBar position="static">
+        <AppBar position={"static"}>
           <Toolbar>
-            <IconButton edge="start" color="inherit" aria-label="menu">
+            <IconButton edge={"start"} color={"inherit"} aria-label={"menu"}>
               <MenuIcon />
             </IconButton>
 
@@ -73,9 +73,9 @@ class NavigationBar extends React.Component {
     else{
       return(
         <div>
-        <AppBar position="static">
+        <AppBar position={"static"}>
           <Toolbar>
-            <IconButton edge="start" color="inherit" aria-label="menu">
+            <IconButton edge={"start"} color={"inherit"} aria-label={"menu"}>
               <MenuIcon />
             </IconButton>
 

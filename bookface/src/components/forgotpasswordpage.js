@@ -11,28 +11,28 @@ class Forgotpasswordpage extends React.Component {
     return (
       <div>
         <br></br>
-        <Container component="main" maxWidth="xs">
+        <Container component={"main"} maxWidth={"xs"}>
           <CssBaseline />
           <div>
             <Avatar>BF</Avatar>
-            <Typography component="h1" variant="h5">
+            <Typography component={"h1"} variant={"h5"}>
               Account Email
             </Typography>
             <form>
               <TextField
-                variant="outlined"
-                margin="normal"
+                variant={"outlined"}
+                margin={"normal"}
                 required
                 fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
+                id={"email"}
+                label={"Email Address"}
+                name={"email"}
               />
               <Button
-                type="submit"
+                type={"submit"}
                 fullWidth
-                variant="contained"
-                color="primary"
+                variant={"contained"}
+                color={"primary"}
               >
                 Send Recovery Email
               </Button>

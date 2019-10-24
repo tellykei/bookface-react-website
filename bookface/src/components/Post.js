@@ -28,21 +28,21 @@ class Post extends React.Component{
             <div>
         <div style={{ margin:"2rem",marginRight:"20rem"}}>
         <TextField
-            id="outlined-multiline-flexible"
-            label="Type what you feel"
+            id={"outlined-multiline-flexible"}
+            label={"Type what you feel"}
             multiline
-            rowsMax="4"
+            rowsMax={"4"}
             fullWidth
-            margin="normal"
-            variant="outlined"
+            margin={"normal"}
+            variant={"outlined"}
             value={this.state.text}
             onChange={this.handlePost}
          />
         <Button
         style={{marginLeft:"63rem"}}
         variant={"contained"}
-        color="yellow"
-        type = "submit"
+        color={"yellow"}
+        type = {"submit"}
         onClick={this.handleAddPost}
         >
         Create Post
