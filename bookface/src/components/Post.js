@@ -1,6 +1,5 @@
 import React from 'react';
-import Typography from '@material-ui/core/Typography';
-import { Card, CardContent, Button, CardActions } from '@material-ui/core';
+import { Button} from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 import Postcontents from './Postcontents';
 class Post extends React.Component{
