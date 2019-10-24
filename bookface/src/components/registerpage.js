@@ -32,18 +32,8 @@ class Registerpage extends React.Component {
     this.handleLastNameChange = this.handleLastNameChange.bind(this);
     this.handleLastNameSubmit = this.handleLastNameSubmit.bind(this);
 
-    this.checkEmail = this.checkEmail.bind(this);
     this.checkPassword = this.checkPassword.bind(this);
     this.onClick = this.onClick.bind(this);
-  }
-  checkEmail() {
-    const email = document.getElementById("email");
-    const mailformat = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (mailformat.test(email.value)) {
-      email.setCustomValidity("");
-    } else {
-      email.setCustomValidity("Invalid Email Address");
-    }
   }
   checkPassword() {
     const password = document.getElementById("password");

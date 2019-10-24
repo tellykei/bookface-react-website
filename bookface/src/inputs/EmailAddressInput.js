@@ -3,6 +3,21 @@ import React from "react";
 import { TextField } from "@material-ui/core";
 
 class EmailAddressInput extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.checkEmail = this.checkEmail.bind(this);
+  }
+
+  checkEmail() {
+    const email = document.getElementById("email");
+    if (email.value.includes("@")) {
+      email.setCustomValidity("");
+    } else {
+      email.setCustomValidity("Invalid Email Address");
+    }
+  }
+
   render() {
     const { value, onChange } = this.props;
     const emailIsValid = value.includes("@");
@@ -19,6 +34,8 @@ class EmailAddressInput extends React.Component {
         onChange={onChange}
         error={!emailIsValid}
         helperText={helperText}
+        id={"email"}
+        onKeyUp={this.checkEmail}
       />
     );
   }
