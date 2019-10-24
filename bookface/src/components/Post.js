@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button} from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
-import Postcontents from './Postcontents';
+import Postcontents from './postcontents';
 class Post extends React.Component{
     constructor(props){
         super(props);
