@@ -13,6 +13,7 @@ class PasswordInput extends React.Component {
         required
         fullWidth
         label={"Password"}
+        type="password"
         value={value}
         onChange={onChange}
       />
