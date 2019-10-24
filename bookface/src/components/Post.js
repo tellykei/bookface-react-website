@@ -26,37 +26,32 @@ class Post extends React.Component{
         const postComponents = post.map((post)=> <Postcontents text = {post.text}/>);
         return( 
             <div>
-        <div style={{ margin:"2rem",marginRight:"20rem"}}>
-        <TextField
-            id={"outlined-multiline-flexible"}
-            label={"Type what you feel"}
-            multiline
-            rowsMax={"4"}
-            fullWidth
-            margin={"normal"}
-            variant={"outlined"}
-            value={this.state.text}
-            onChange={this.handlePost}
-         />
-        <Button
-        style={{marginLeft:"63rem"}}
-        variant={"contained"}
-        color={"yellow"}
-        type = {"submit"}
-        onClick={this.handleAddPost}
-        >
-        Create Post
-    </Button> 
-    </div>
-    {postComponents}
+                <div style={{ margin:"2rem",marginRight:"20rem"}}>
+                    <TextField
+                        id={"outlined-multiline-flexible"}
+                        label={"Type what you feel"}
+                        multiline
+                        rowsMax={"4"}
+                        fullWidth
+                        margin={"normal"}
+                        variant={"outlined"}
+                        value={this.state.text}
+                        onChange={this.handlePost} />
+                    <Button
+                            style={{ marginLeft: "63rem" }}
+                            variant={"contained"}
+                            color={"yellow"}
+                            type={"submit"}
+                            onClick={this.handleAddPost}>
+                    
+                        Create Post
+                    </Button> 
+                </div>
+                {postComponents}
 
-    </div>)
-        }
-    
+            </div>
 
-        {postComponents}
-      </div>
-    );
+        );
   }
 }
 export default Post;
