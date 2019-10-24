@@ -21,8 +21,10 @@ class Loginpage extends React.Component {
 
     this.handleEmailAddressChange = this.handleEmailAddressChange.bind(this);
     this.handleEmailAddressSubmit = this.handleEmailAddressSubmit.bind(this);
+
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
     this.handlePasswordSubmit = this.handlePasswordSubmit.bind(this);
+
     this.onClick = this.onClick.bind(this);
   }
 
@@ -34,6 +36,7 @@ class Loginpage extends React.Component {
 
     alert(`You entered the Email Address: ${emailAddress}`);
   }
+
   handlePasswordChange(event) {
     this.setState({ Password: event.target.value });
   }
@@ -47,6 +50,7 @@ class Loginpage extends React.Component {
     this.handleEmailAddressSubmit();
     this.handlePasswordSubmit();
   }
+
   render() {
     const { emailAddress } = this.state;
     const { Password } = this.state;

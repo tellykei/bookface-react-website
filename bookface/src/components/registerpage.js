@@ -44,6 +44,7 @@ class Registerpage extends React.Component {
       confirm_password.setCustomValidity("");
     }
   }
+
   handleFirstNameChange(event) {
     this.setState({ FirstName: event.target.value });
   }
@@ -61,6 +62,7 @@ class Registerpage extends React.Component {
 
     alert(`You entered the LastName: ${LastName}`);
   }
+
   handleEmailAddressChange(event) {
     this.setState({ emailAddress: event.target.value });
   }
