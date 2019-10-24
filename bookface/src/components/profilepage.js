@@ -9,11 +9,11 @@ class ProfilePage extends React.Component {
         return (
         <div>
         <Card style={{ margin: '2rem' }}>
-          <Container maxWidth="sm">
-            <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
+          <Container maxWidth={"sm"}>
+            <Typography component={"h1"} variant={"h2"} align={"center"} color={"textPrimary"} gutterBottom>
               Name
             </Typography>
-            <Typography variant="h5" align="center" color="textSecondary" paragraph>
+            <Typography variant={"h5"} align={"center"} color={"textSecondary"} paragraph>
               Description
             </Typography>
           </Container>

@@ -86,11 +86,11 @@ class Registerpage extends React.Component {
     return (
       <div>
         <br></br>
-        <Container component="main" maxWidth="xs">
+        <Container component={"main"} maxWidth={"xs"}>
           <CssBaseline />
           <div>
             <Avatar>BF</Avatar>
-            <Typography component="h1" variant="h5">
+            <Typography component={"h1"} variant={"h5"}>
               Create a new account
             </Typography>
             <form>
@@ -107,32 +107,32 @@ class Registerpage extends React.Component {
                 onChange={this.handleEmailAddressChange}
               />
               <TextField
-                variant="outlined"
-                margin="normal"
+                variant={"outlined"}
+                margin={"normal"}
                 required
                 fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
+                name={"password"}
+                label={"Password"}
+                type={"password"}
+                id={"password"}
                 onChange={this.checkPassword}
               />
               <TextField
-                variant="outlined"
-                margin="normal"
+                variant={"outlined"}
+                margin={"normal"}
                 required
                 fullWidth
-                name="confirm_password"
-                label="Confirm Password"
-                type="password"
-                id="confirm_password"
+                name={"confirm_password"}
+                label={"Confirm Password"}
+                type={"password"}
+                id={"confirm_password"}
                 onKeyUp={this.checkPassword}
               />
               <Button
-                type="submit"
+                type={"submit"}
                 fullWidth
-                variant="contained"
-                color="primary"
+                variant={"contained"}
+                color={"primary"}
                 onClick={this.onClick}
               >
                 Register

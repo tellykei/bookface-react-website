@@ -58,11 +58,11 @@ class Loginpage extends React.Component {
     return (
       <div>
         <br></br>
-        <Container component="main" maxWidth="xs">
+        <Container component={"main"} maxWidth={"xs"}>
           <CssBaseline />
           <div>
             <Avatar>BF</Avatar>
-            <Typography component="h1" variant="h5">
+            <Typography component={"h1"} variant={"h5"}>
               Sign in
             </Typography>
             <form>
@@ -75,26 +75,26 @@ class Loginpage extends React.Component {
                 onChange={this.handlePasswordChange}
               />
               <FormControlLabel
-                control={<Checkbox value="remember" color="default" />}
-                label="Remember me"
+                control={<Checkbox value={"remember"} color={"default"} />}
+                label={"Remember me"}
               />
               <Button
-                type="submit"
+                type={"submit"}
                 fullWidth
-                variant="contained"
-                color="primary"
+                variant={"contained"}
+                color={"primary"}
                 onClick={this.onClick}
               >
                 Login In
               </Button>
               <Grid container>
                 <Grid item xs>
-                  <Link href="recover" color="inherit" variant="body2">
+                  <Link href={"recover"} color={"inherit"} variant={"body2"}>
                     {"Forgot password?"}
                   </Link>
                 </Grid>
                 <Grid item>
-                  <Link href="/register" color="inherit" variant="body2">
+                  <Link href={"/register"} color={"inherit"} variant={"body2"}>
                     {"Don't have an account? Sign Up"}
                   </Link>
                 </Grid>
