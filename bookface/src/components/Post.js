@@ -25,6 +25,7 @@ class Post extends React.Component{
         const{post}=this.state;
         const postComponents = post.map((post)=> <Postcontents text = {post.text}/>);
         return( 
+            <div>
         <div style={{ margin:"2rem",marginRight:"20rem"}}>
         <TextField
             id="outlined-multiline-flexible"
@@ -46,8 +47,9 @@ class Post extends React.Component{
         >
         Create Post
     </Button> 
-    
+    </div>
     {postComponents}
+
     </div>)
         }
     

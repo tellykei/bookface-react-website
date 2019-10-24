@@ -41,9 +41,7 @@ class HomePage extends React.Component {
                 <Typography variant={"h5"} align={'center'} style={{ margin: '2rem' }}>
                     BookFace Home
                 </Typography>
-                <div>
-                    <Post />
-                </div>
+                <Post />
                 {cards}
                 <Typography variant={"h6"} align={'center'} style={{ margin: '2rem' }}>
                     Feedback?
