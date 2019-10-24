@@ -1,7 +1,8 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
-import { Card, CardContent, Button } from '@material-ui/core';
+import { Card, CardContent, Button, CardActions } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
+import Postcontents from './Postcontents';
 class Post extends React.Component{
     constructor(props){
         super(props);
@@ -14,41 +15,16 @@ class Post extends React.Component{
     handlePost(event){
         this.setState({text: event.target.value});
     }
-    handleAddPost(event){
+    handleAddPost(){
         const{post}=this.state;
-        const newPost = {names:"me",text:this.state.text}
+        const newPost = {text:this.state.text}
         post.push(newPost);
         this.setState({post:post});
-        alert(this.state.text);
-        event.preventDefault();
     }
+
     render(){
         const{post}=this.state;
-        const postComponents = post.map((name)=>{
-            return(
-                <Card style={{ margin: '2rem' }}>
-
-                    <CardContent>
-
-                        <Typography variant={"h5"}>
-                            {name}
-                        </Typography>
-
-                        <Typography color={"textSecondary"}>
-                            info about user
-                        </Typography>
-
-                        <Typography variant={"body2"}>
-                            <br />
-                            Status:
-                            <br />
-                            {""+this.state.text}
-                        </Typography>
-                    </CardContent>
-                </Card>
-                
-            )
-        });
+        const postComponents = post.map((post)=> <Postcontents text = {post.text}/>);
         return( 
         <div style={{ margin:"2rem",marginRight:"20rem"}}>
         <TextField
@@ -71,6 +47,7 @@ class Post extends React.Component{
         >
         Create Post
     </Button> 
+    
     {postComponents}
     </div>)
         }

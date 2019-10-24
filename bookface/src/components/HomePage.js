@@ -4,8 +4,8 @@ import Typography from '@material-ui/core/Typography';
 import { Card, CardContent } from '@material-ui/core';
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import ThumbDownAltIcon from "@material-ui/icons/ThumbDownAlt";
-
 import Post from './Post';
+
 class HomePage extends React.Component {
     constructor(props){
         super(props);
@@ -57,22 +57,22 @@ class HomePage extends React.Component {
                             {'"This is where user\'s feed will appear."'}
                         </Typography>
                     </CardContent>
-
+                
                         <IconButton 
-                            variant={"contained"}
-                            aria-label="like" 
-                            onClick={this.handelAddlike}>
-                            <ThumbUpIcon />
-                            {this.state.like}
-                        </IconButton>
-            
-                        <IconButton
-                            variant = {"contained"}
-                            aria-label="dislike"
-                            onClick={this.handleAdddislike}>
-                            <ThumbDownAltIcon/>
-                            {this.state.dislike}
-                         </IconButton>
+                        variant={"contained"}
+                        aria-label="like" 
+                        onClick={this.handelAddlike}>
+                        <ThumbUpIcon />
+                        {this.state.like}
+                    </IconButton>
+        
+                    <IconButton
+                        variant = {"contained"}
+                        aria-label="dislike"
+                        onClick={this.handleAdddislike}>
+                        <ThumbDownAltIcon/>
+                        {this.state.dislike}
+                     </IconButton>    
                 </Card>
                 
             )
@@ -83,9 +83,9 @@ class HomePage extends React.Component {
                 <Typography variant={"h5"} align={'center'} style={{ margin: '2rem' }}>
                     BookFace Home
                 </Typography>
-                <div><Post /></div>
-                
-
+                <div>
+                    <Post />
+                </div>
                 {cards}
                 <Typography variant={"h6"} align={'center'} style={{ margin: '2rem' }}>
                     Feedback?
