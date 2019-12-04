@@ -13,6 +13,8 @@ const server = express();
 
 server.use(express.json());
 
+
+//endpoint for creating a user
 server.post('/api/users', async (request, response) => {
 
     //storing email address and password from request body
@@ -97,6 +99,44 @@ server.post('/api/sessions', async (request, response) => {
         // Don't tell the user why the login failed, it just failed with a 400
         return response.sendStatus(400);
     });
+});
+
+
+// endpoint for creating a user post
+server.post('/api/posts', async (request, response) => {
+    const { userName, description } = request.body;
+
+    try {
+        const userPost = await Post.create({
+            userId: userName,
+            description
+        });
+
+        console.log('Post created by: ' + userPost.userId + ' Content: ' + userPost.description);
+
+        return response.sendStatus(200);
+    } catch (error) {
+        console.log('Error creating post ' + error.message);
+
+        return response.sendStatus(500);
+    }
+});
+
+//endpoint for deleting a post
+server.delete('/api/posts', async (request, response) => {
+    const { userName, description } = request.body;
+    console.log('A delete request came in to delete: ' + description);
+
+    try {
+        await Post.deleteOne({
+            userId: userName,
+            description
+        });
+    } catch (error) {
+        console.log('Error deleting post ' + error.message);
+
+        return response.sendStatus(500);
+    }
 });
 
 const port = process.env.PORT || 4000;
