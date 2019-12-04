@@ -1,4 +1,5 @@
 import React from "react";
+import Axios from "axios";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -8,32 +9,23 @@ import Container from "@material-ui/core/Container";
 import EmailAddressInput from "../inputs/EmailAddressInput";
 import LastNameInput from "../inputs/LastNameInput";
 import FirstNameInput from "../inputs/FirstNameInput";
+import PasswordInput from "../inputs/PasswordInput";
 
 class Registerpage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      FirstName: ""
-    };
-    this.state = {
-      LastName: ""
-    };
 
     this.state = {
-      emailAddress: ""
+      FirstName: "",
+      LastName: "",
+      EmailAddress: "",
+      Password: ""
     };
 
-    this.handleEmailAddressChange = this.handleEmailAddressChange.bind(this);
-    this.handleEmailAddressSubmit = this.handleEmailAddressSubmit.bind(this);
+    this.handleUserEmailChange = this.handleUserEmailChange.bind(this);
+    this.handleUserPasswordChange = this.handleUserPasswordChange.bind(this);
 
-    this.handleFirstNameChange = this.handleFirstNameChange.bind(this);
-    this.handleFirstNameSubmit = this.handleFirstNameSubmit.bind(this);
-
-    this.handleLastNameChange = this.handleLastNameChange.bind(this);
-    this.handleLastNameSubmit = this.handleLastNameSubmit.bind(this);
-
-    this.checkPassword = this.checkPassword.bind(this);
-    this.onClick = this.onClick.bind(this);
+    this.handleUserSubmit = this.handleUserSubmit.bind(this);
   }
   checkPassword() {
     const password = document.getElementById("password");
@@ -48,41 +40,32 @@ class Registerpage extends React.Component {
   handleFirstNameChange(event) {
     this.setState({ FirstName: event.target.value });
   }
-  handleFirstNameSubmit() {
-    const { FirstName } = this.state;
-
-    alert(`You entered the First Name: ${FirstName}`);
-  }
 
   handleLastNameChange(event) {
     this.setState({ LastName: event.target.value });
-  }
-  handleLastNameSubmit() {
-    const { LastName } = this.state;
-
-    alert(`You entered the LastName: ${LastName}`);
   }
 
   handleEmailAddressChange(event) {
     this.setState({ emailAddress: event.target.value });
   }
-  handleEmailAddressSubmit() {
-    const { emailAddress } = this.state;
 
-    alert(`You entered the Email Address: ${emailAddress}`);
+  handlePasswordChange(event) {
+    this.setState({ Password1: event.target.value });
   }
+  async handleUserSubmit() {
+    const { userEmail, userPassword } = this.state;
+    try {
+      const data = { email: userEmail, password: userPassword };
 
-  onClick(event) {
-    this.handleFirstNameSubmit();
-    this.handleLastNameSubmit();
-    this.handleEmailAddressSubmit();
-    this.checkPassword();
+      await Axios.post("/api/users", data);
+    } catch (error) {
+      console.error(error.message);
+    }
   }
 
   render() {
-    const { FirstName } = this.state;
-    const { LastName } = this.state;
-    const { emailAddress } = this.state;
+    const { FirstName, LastName, EmailAddress, Password } = this.state;
+
     return (
       <div>
         <br></br>
@@ -103,31 +86,14 @@ class Registerpage extends React.Component {
                 onChange={this.handleLastNameChange}
               />
               <EmailAddressInput
-                value={emailAddress}
+                value={EmailAddress}
                 onChange={this.handleEmailAddressChange}
               />
-              <TextField
-                variant={"outlined"}
-                margin={"normal"}
-                required
-                fullWidth
-                name={"password"}
-                label={"Password"}
-                type={"password"}
-                id={"password"}
-                onChange={this.checkPassword}
+              <PasswordInput
+                value={Password}
+                onChange={this.handlePasswordChange}
               />
-              <TextField
-                variant={"outlined"}
-                margin={"normal"}
-                required
-                fullWidth
-                name={"confirm_password"}
-                label={"Confirm Password"}
-                type={"password"}
-                id={"confirm_password"}
-                onKeyUp={this.checkPassword}
-              />
+
               <Button
                 type={"submit"}
                 fullWidth

@@ -2,8 +2,7 @@ import React from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
+import Axios from "axios";
 import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
@@ -16,39 +15,39 @@ class Loginpage extends React.Component {
     super(props);
 
     this.state = {
-      emailAddress: ""
+      emailAddress: "",
+      Password: ""
     };
 
     this.handleEmailAddressChange = this.handleEmailAddressChange.bind(this);
-    this.handleEmailAddressSubmit = this.handleEmailAddressSubmit.bind(this);
 
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
-    this.handlePasswordSubmit = this.handlePasswordSubmit.bind(this);
-
-    this.onClick = this.onClick.bind(this);
+    this.handleUserSubmit = this.handleUserSubmit.bind(this);
   }
 
   handleEmailAddressChange(event) {
     this.setState({ emailAddress: event.target.value });
   }
-  handleEmailAddressSubmit() {
-    const { emailAddress } = this.state;
-
-    alert(`You entered the Email Address: ${emailAddress}`);
-  }
 
   handlePasswordChange(event) {
     this.setState({ Password: event.target.value });
   }
-  handlePasswordSubmit() {
-    const { Password } = this.state;
 
-    alert(`You entered the Password: ${Password}`);
-  }
+  async handleUserSubmit() {
+    const { emailAddress, Password } = this.state;
+    try {
+      const data = { email: emailAddress, password: Password };
 
-  onClick(event) {
-    this.handleEmailAddressSubmit();
-    this.handlePasswordSubmit();
+      const response = await Axios.post("/api/sessions", data);
+
+      if (JSON.stringify(response.status) === "200") {
+        const { history } = this.props;
+
+        history.push("/login");
+      }
+    } catch (error) {
+      console.error(error.message);
+    }
   }
 
   render() {
@@ -74,16 +73,13 @@ class Loginpage extends React.Component {
                 value={Password}
                 onChange={this.handlePasswordChange}
               />
-              <FormControlLabel
-                control={<Checkbox value={"remember"} color={"default"} />}
-                label={"Remember me"}
-              />
+
               <Button
                 type={"submit"}
                 fullWidth
                 variant={"contained"}
                 color={"primary"}
-                onClick={this.onClick}
+                onClick={this.handleUserSubmit}
               >
                 Login In
               </Button>
